@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema } from "../../shared/userInputSchema";
 import { useNavigate } from "react-router-dom";
-import { url } from "../../config.js";
+import url from "../../config.js";
 
 function Signup({ setUser }) {
   const {
