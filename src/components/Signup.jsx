@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema } from "../../shared/userInputSchema";
 import { useNavigate } from "react-router-dom";
+import { url } from "../../config.js";
 
 function Signup({ setUser }) {
   const {
@@ -28,7 +29,7 @@ function Signup({ setUser }) {
   const handleSave = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      const response = await fetch("http://localhost:3000/auth/signup", {
+      const response = await fetch(`${url}/auth/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

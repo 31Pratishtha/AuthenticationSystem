@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema } from "../../shared/userInputSchema";
+import url from "../../config.js"
 
 function Login({ setUser }) {
   const {
@@ -25,7 +26,7 @@ function Login({ setUser }) {
   const handleSave = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      const response = await fetch("http://localhost:3000/auth/login", {
+      const response = await fetch(`${url}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
