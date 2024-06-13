@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   Route,
-  Link,
   Routes,
-  redirect,
-  Navigate,
   useNavigate,
 } from "react-router-dom";
 import Signup from "./components/Signup";
