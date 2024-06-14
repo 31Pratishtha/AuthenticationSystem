@@ -4,6 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema } from "../../shared/userInputSchema";
 import url from "../../config.js"
 
+const loginUrl = import.meta.env.VITE_LOGIN_URL;
+
 function Login({ setUser }) {
   const {
     register,
@@ -26,7 +28,7 @@ function Login({ setUser }) {
   const handleSave = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      const response = await fetch(`${url}/auth/login`, {
+        const response = await fetch(`${loginUrl}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
