@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: "../.env" });
 const app = express();
 
+
 app.use(cors({ origin: ['https://authentication-system-frontend.vercel.app', 'http://localhost:5173', 'http://localhost:4173'] }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
