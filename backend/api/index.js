@@ -7,8 +7,15 @@ import dotenv from "dotenv";
 dotenv.config({ path: "../.env" });
 const app = express();
 
-
-app.use(cors({ origin: ['https://authentication-system-frontend.vercel.app', 'http://localhost:5173', 'http://localhost:4173'] }));
+app.use(
+  cors({
+    origin: [
+      "https://authentication-system-frontend.vercel.app",
+      "http://localhost:5173",
+      "http://localhost:4173",
+    ],
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -24,15 +31,14 @@ app.use((req, res, next) => {
 });
 
 const port = process.env.PORT || 3000;
+const mongodbUrl = process.env.MONGODB_URL;
 
 app.listen(`${port}`, () => {
   console.log(`Server is running on port ${port}`);
 });
 
 mongoose
-  .connect(
-    "mongodb+srv://Pratishtha:MongoDBpswd@backenddb.kn00wnx.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB"
-  )
+  .connect(`${mongodbUrl}`)
   .then(() => {
     console.log("Connected to MongoDB");
   })
