@@ -28,7 +28,7 @@ function Signup({ setUser }) {
   const handleSave = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      const response = await fetch("http://localhost:3000/auth/signup", {
+      const response = await fetch("http://localhost:3000/api/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +102,6 @@ function Signup({ setUser }) {
           >
             {isSubmitting ? "Loading..." : "Submit"}
           </button>
-          {errors && console.log(errors)}
         </form>
       </div>
     </>

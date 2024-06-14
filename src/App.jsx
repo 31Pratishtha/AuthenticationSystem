@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Route,
-  Link,
-  Routes,
-  redirect,
-  Navigate,
-  useNavigate,
-} from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Homepage from "./components/Homepage";
@@ -30,7 +23,10 @@ export default function App() {
           <Route path="/" Component={Homepage}></Route>
           <Route path="/signup" element={<Signup setUser={setUser} />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/dashboard" element={user ? <Dashboard user={user}/> : <Homepage/>} />
+          <Route
+            path="/dashboard"
+            element={user ? <Dashboard user={user} /> : <Homepage />}
+          />
           {console.log("user : ", user)}
         </Routes>
       </div>
