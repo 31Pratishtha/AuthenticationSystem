@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSchema } from "../../shared/userInputSchema";
 
+const loginUrl = import.meta.env.VITE_LOGIN_URL;
+
 function Login({ setUser }) {
   const {
     register,
@@ -25,7 +27,7 @@ function Login({ setUser }) {
   const handleSave = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
+      const response = await fetch(`${loginUrl}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
