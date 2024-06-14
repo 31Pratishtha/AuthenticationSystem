@@ -1,11 +1,11 @@
 {
   "name": "backend",
   "version": "2.0.0",
-  "main": "server.js",
+  "main": "./api/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -L -r dotenv/config server.js"
+    "start": "nodemon -L -r dotenv/config ./api/index.js"
   },
   "keywords": [],
   "author": "",
