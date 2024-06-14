@@ -5,6 +5,8 @@ import { userSchema } from "../../shared/userInputSchema";
 import { useNavigate } from "react-router-dom";
 import url from "../../config.js";
 
+const signupUrl = import.meta.env.VITE_SIGNUP_URL;
+
 function Signup({ setUser }) {
   const {
     register,
@@ -29,7 +31,7 @@ function Signup({ setUser }) {
   const handleSave = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     try {
-      const response = await fetch(`${url}/auth/signup`, {
+        const response = await fetch(`${signupUrl}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -103,7 +105,6 @@ function Signup({ setUser }) {
           >
             {isSubmitting ? "Loading..." : "Submit"}
           </button>
-          {errors && console.log(errors)}
         </form>
       </div>
     </>
