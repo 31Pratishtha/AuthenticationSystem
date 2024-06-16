@@ -3,19 +3,22 @@ import cors from "cors";
 import authRoutes from "../routes/auth.route.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 dotenv.config({ path: "../.env" });
 const app = express();
 
-app.use(
-  cors({
-    origin: [
-      "https://authentication-system-frontend.vercel.app",
-      "http://localhost:5173",
-      "http://localhost:4173",
-    ],
-  })
-);
+const corsOptions = {
+  origin: [
+    "https://authentication-system-frontend.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:4173",
+  ],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
